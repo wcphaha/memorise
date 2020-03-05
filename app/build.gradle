@@ -21,12 +21,12 @@ android {
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-
+//
     implementation 'com.github.bumptech.glide:glide:4.11.0'
     implementation 'com.android.volley:volley:1.1.1'
     implementation 'com.alibaba:fastjson:1.2.9'
 
-
+//
     implementation 'androidx.appcompat:appcompat:1.0.2'
     implementation 'com.google.android.material:material:1.1.0'
     implementation 'androidx.constraintlayout:constraintlayout:1.1.3'

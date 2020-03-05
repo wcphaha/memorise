@@ -18,6 +18,7 @@ import android.widget.TextView;
 import com.bumptech.glide.Glide;
 import com.example.memorise.R;
 
+
 public class SetFragment extends Fragment {
 
     private SetViewModel setViewModel;
@@ -28,10 +29,6 @@ public class SetFragment extends Fragment {
                 ViewModelProviders.of(this).get(SetViewModel.class);
         View root = inflater.inflate(R.layout.set_fragment, container, false);
         final TextView textView = root.findViewById(R.id.text_set);
-
-        final ImageView imageView = root.findViewById(R.id.image);
-        Glide.with(this).load("https://s2.ax1x.com/2020/02/02/1YPsHg.jpg")
-                .into(imageView);
         textView.setText("这里是设置界面");
         return root;
     }

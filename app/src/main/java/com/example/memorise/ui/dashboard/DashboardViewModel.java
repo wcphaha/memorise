@@ -10,7 +10,6 @@ public class DashboardViewModel extends ViewModel {
 
     public DashboardViewModel() {
         mText = new MutableLiveData<>();
-        mText.setValue("这里是统计信息界面");
     }
 
     public LiveData<String> getText() {

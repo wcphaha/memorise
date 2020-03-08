@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.CalendarView;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -25,11 +26,8 @@ public class DashboardFragment extends Fragment {
         dashboardViewModel =
                 ViewModelProviders.of(this).get(DashboardViewModel.class);
         View root = inflater.inflate(R.layout.fragment_dashboard, container, false);
-        final TextView textView = root.findViewById(R.id.text_dashboard);
-        final ImageView imageView = root.findViewById(R.id.image);
-        Glide.with(this).load("https://s2.ax1x.com/2020/02/02/1YPhvV.gif")
-                .into(imageView);
-        textView.setText("这里是记统计界面");
+
+        CalendarView calendarView = root.findViewById(R.id.cal);
 
         return root;
     }

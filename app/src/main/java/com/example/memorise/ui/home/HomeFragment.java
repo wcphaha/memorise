@@ -22,6 +22,7 @@ import com.android.volley.toolbox.Volley;
 import com.example.memorise.ParseJson.JsonToObject;
 import com.example.memorise.ParseJson.StrToJosn;
 import com.example.memorise.R;
+import com.example.memorise.StaticVar.Variable;
 import com.example.memorise.object.Vocabulary;
 import com.example.memorise.threads.FreshHome;
 
@@ -30,6 +31,7 @@ public class HomeFragment extends Fragment {
     private HomeViewModel homeViewModel;
     private StringRequest stringRequest;
     Vocabulary vocabulary;//存一个单词
+
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -49,7 +51,7 @@ public class HomeFragment extends Fragment {
         know.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mQueue.add(stringRequest);//将请求放到请求队列里面
+                mQueue.add(stringRequest);
                 btns.setVisibility(View.INVISIBLE);
                 tip1.setVisibility(View.VISIBLE);
                 tip2.setVisibility(View.VISIBLE);
@@ -57,7 +59,7 @@ public class HomeFragment extends Fragment {
 
             }
         });
-        frameLayout.setOnClickListener(new View.OnClickListener(){
+        frameLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 btns.setVisibility(View.VISIBLE);
@@ -67,6 +69,8 @@ public class HomeFragment extends Fragment {
 //                mQueue.add(stringRequest);//将请求放到请求队列里面
             }
         });
+
+
         stringRequest = new StringRequest(
                 "http://139.199.187.245:9003/vocab",
                 new Response.Listener<String>() {
@@ -74,9 +78,9 @@ public class HomeFragment extends Fragment {
                     public void onResponse(String response) {
 
                         JSONObject json = StrToJosn.ParseJsonArray(response);
-                        vocabulary = JsonToObject.toObject(json);
-                        //调用刷新显示Text线程
-                        FreshHome freshHome = new FreshHome(textView,mean,vocabulary);
+                        Variable.vocabularies[0]= JsonToObject.toObject(json);
+//                        //调用刷新显示Text线程
+                        FreshHome freshHome = new FreshHome(textView, mean);
                         freshHome.run();
                     }
                 },
@@ -88,8 +92,6 @@ public class HomeFragment extends Fragment {
                 }
         );
         mQueue.add(stringRequest);//将请求放到请求队列里面
-        System.out.println("0000");
-
         return root;
     }
 }

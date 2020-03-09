@@ -12,6 +12,7 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.webkit.WebView;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -28,8 +29,9 @@ public class SetFragment extends Fragment {
         setViewModel =
                 ViewModelProviders.of(this).get(SetViewModel.class);
         View root = inflater.inflate(R.layout.set_fragment, container, false);
-        final TextView textView = root.findViewById(R.id.text_set);
-        textView.setText("这里是设置界面");
+//        final TextView textView = root.findViewById(R.id.text_set);
+//        textView.setText("这里是设置界面");
+
         return root;
     }
 

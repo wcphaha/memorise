@@ -4,5 +4,6 @@
     <string name="title_dashboard">统计</string>
     <string name="title_notifications">用户</string>
     <string name="title_set">设置</string>
+    <string name="title_activity_test">test</string>
 
 </resources>

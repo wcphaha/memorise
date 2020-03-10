@@ -13,25 +13,17 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProviders;
 
-import com.alibaba.fastjson.JSONObject;
 import com.android.volley.RequestQueue;
-import com.android.volley.Response;
-import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
-import com.example.memorise.ParseJson.JsonToObject;
-import com.example.memorise.ParseJson.StrToJosn;
 import com.example.memorise.R;
-import com.example.memorise.StaticVar.Variable;
 import com.example.memorise.object.Vocabulary;
-import com.example.memorise.threads.FreshHome;
+import com.example.memorise.threads.HomeGet;
 
 public class HomeFragment extends Fragment {
 
-    private HomeViewModel homeViewModel;
-    private StringRequest stringRequest;
-    Vocabulary vocabulary;//存一个单词
-
+    public RequestQueue mQueue;//一个请求队列，发请求时，将请求添加进来
+    private HomeViewModel homeViewModel;//未使用
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -46,12 +38,13 @@ public class HomeFragment extends Fragment {
         final LinearLayout btns = root.findViewById(R.id.btns);
         final Button know = root.findViewById(R.id.know);
         final FrameLayout frameLayout = root.findViewById(R.id.shows);
-        final RequestQueue mQueue = Volley.newRequestQueue(getActivity());
+        mQueue = Volley.newRequestQueue(getActivity());
 
         know.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mQueue.add(stringRequest);
+                HomeGet h1 = new HomeGet(mQueue,textView,mean);
+                h1.run();
                 btns.setVisibility(View.INVISIBLE);
                 tip1.setVisibility(View.VISIBLE);
                 tip2.setVisibility(View.VISIBLE);
@@ -66,32 +59,13 @@ public class HomeFragment extends Fragment {
                 tip1.setVisibility(View.INVISIBLE);
                 tip2.setVisibility(View.INVISIBLE);
                 mean.setVisibility(View.VISIBLE);
-//                mQueue.add(stringRequest);//将请求放到请求队列里面
+
             }
         });
-
-
-        stringRequest = new StringRequest(
-                "http://139.199.187.245:9003/vocab",
-                new Response.Listener<String>() {
-                    @Override
-                    public void onResponse(String response) {
-
-                        JSONObject json = StrToJosn.ParseJsonArray(response);
-                        Variable.vocabularies[0]= JsonToObject.toObject(json);
-//                        //调用刷新显示Text线程
-                        FreshHome freshHome = new FreshHome(textView, mean);
-                        freshHome.run();
-                    }
-                },
-                new Response.ErrorListener() {
-                    @Override
-                    public void onErrorResponse(VolleyError error) {
-                        System.out.println("出了点问题!!!");
-                    }
-                }
-        );
-        mQueue.add(stringRequest);//将请求放到请求队列里面
+        //调用线程刷新界面
+        HomeGet g1 = new HomeGet(mQueue,textView,mean);
+        g1.run();
+        ///
         return root;
     }
 }

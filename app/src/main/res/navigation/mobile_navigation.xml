@@ -14,18 +14,18 @@
 
     <fragment
         android:id="@+id/navigation_dashboard"
-        android:name="com.example.memorise.ui.dashboard.DashboardFragment"
+        android:name="com.example.memorise.ui.Info.InfoFragment"
         android:label="@string/title_dashboard"
-        tools:layout="@layout/fragment_dashboard" />
+        tools:layout="@layout/fragment_info" />
 
     <fragment
         android:id="@+id/navigation_notifications"
-        android:name="com.example.memorise.ui.notifications.NotificationsFragment"
+        android:name="com.example.memorise.ui.User.UserFragment"
         android:label="@string/title_notifications"
-        tools:layout="@layout/fragment_notifications" />
+        tools:layout="@layout/fragment_user" />
     <fragment
         android:id="@+id/navigation_set"
         android:name="com.example.memorise.ui.set.SetFragment"
         android:label="@string/title_set"
-        tools:layout="@layout/set_fragment" />
+        tools:layout="@layout/fragment_set" />
 </navigation>

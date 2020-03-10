@@ -1,16 +1,15 @@
-package com.example.memorise.ui.notifications;
+package com.example.memorise.ui.Info;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-public class NotificationsViewModel extends ViewModel {
+public class InfoViewModel extends ViewModel {
 
     private MutableLiveData<String> mText;
 
-    public NotificationsViewModel() {
+    public InfoViewModel() {
         mText = new MutableLiveData<>();
-        mText.setValue("这里是个人用户界面");
     }
 
     public LiveData<String> getText() {

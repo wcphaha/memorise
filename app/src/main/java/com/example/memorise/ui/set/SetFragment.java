@@ -2,6 +2,9 @@ package com.example.memorise.ui.set;
 
 import androidx.lifecycle.ViewModelProviders;
 
+import android.content.ContentValues;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -10,8 +13,10 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import com.example.memorise.R;
+import com.example.memorise.sql.DatabaseHelper;
 
 
 public class SetFragment extends Fragment {
@@ -23,8 +28,6 @@ public class SetFragment extends Fragment {
         setViewModel =
                 ViewModelProviders.of(this).get(SetViewModel.class);
         View root = inflater.inflate(R.layout.fragment_set, container, false);
-//        final TextView textView = root.findViewById(R.id.text_set);
-//        textView.setText("这里是设置界面");
 
         return root;
     }

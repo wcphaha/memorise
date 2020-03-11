@@ -16,13 +16,10 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProviders;
 
 import com.android.volley.RequestQueue;
-import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.memorise.R;
 import com.example.memorise.StaticVar.Variable;
-import com.example.memorise.object.Vocabulary;
 import com.example.memorise.threads.HomeGet;
-import com.example.memorise.threads.Play;
 
 public class HomeFragment extends Fragment {
 

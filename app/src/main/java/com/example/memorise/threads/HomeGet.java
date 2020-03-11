@@ -38,8 +38,8 @@ public class HomeGet extends Thread {
                         JSONObject json = StrToJosn.ParseJsonArray(response);
                         Variable.vocabularies[0]= JsonToObject.toObject(json);
                         //播放单词
-                        Play play = new Play(Variable.vocabularies[0].vocab);
-                        play.run();
+//                        Play play = new Play(Variable.vocabularies[0].vocab);
+//                        play.run();
                         //刷新显示Text
                         vocab.setText(Variable.vocabularies[0].vocab);
                         mean.setText(Variable.vocabularies[0].mean);

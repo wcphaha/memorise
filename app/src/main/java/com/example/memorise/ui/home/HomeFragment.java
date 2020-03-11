@@ -7,7 +7,9 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
+import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
@@ -40,13 +42,22 @@ public class HomeFragment extends Fragment {
         final LinearLayout btns = root.findViewById(R.id.btns);
         final Button know = root.findViewById(R.id.know);
         final FrameLayout frameLayout = root.findViewById(R.id.shows);
+        final ProgressBar progressBar = root.findViewById(R.id.progress);
         mQueue = Volley.newRequestQueue(getActivity());
+        progressBar.setMax(Variable.progress_max);
 
         know.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 HomeGet h1 = new HomeGet(mQueue,textView,mean);
                 h1.run();
+                Variable.progress +=1;
+                progressBar.setProgress(Variable.progress);
+                if (Variable.progress == Variable.progress_max){
+                    Toast.makeText(getActivity(),"今日任务完成",Toast.LENGTH_SHORT)
+                            .show();
+                }
+
                 btns.setVisibility(View.INVISIBLE);
                 tip1.setVisibility(View.VISIBLE);
                 tip2.setVisibility(View.VISIBLE);

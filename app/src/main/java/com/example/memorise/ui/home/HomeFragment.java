@@ -17,8 +17,10 @@ import com.android.volley.RequestQueue;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.memorise.R;
+import com.example.memorise.StaticVar.Variable;
 import com.example.memorise.object.Vocabulary;
 import com.example.memorise.threads.HomeGet;
+import com.example.memorise.threads.Play;
 
 public class HomeFragment extends Fragment {
 
@@ -62,9 +64,20 @@ public class HomeFragment extends Fragment {
 
             }
         });
-        //调用线程刷新界面
-        HomeGet g1 = new HomeGet(mQueue,textView,mean);
-        g1.run();
+        //通过设置flag解决了每次点击home切换单词
+        // 当第一次进入home页面的时候，get单词；
+        // 切换界面时到home只刷新一个UI，不重新get新单词
+        if (Variable.do_not_fresh_home == 0){
+            //调用线程刷新界面
+            HomeGet g1 = new HomeGet(mQueue,textView,mean);
+            g1.run();
+            Variable.do_not_fresh_home = 1;
+        }else {
+            //刷新显示Text
+            textView.setText(Variable.vocabularies[0].vocab);
+            mean.setText(Variable.vocabularies[0].mean);
+        }
+
         ///
         return root;
     }

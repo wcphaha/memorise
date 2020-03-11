@@ -35,7 +35,7 @@ public class MainActivity extends AppCompatActivity {
         MenuItem searchItem = menu.findItem(R.id.menu_search_view);
         mSearchView = (SearchView) searchItem.getActionView();
         mSearchView.setSubmitButtonEnabled(true);
-
+        mSearchView.setQueryHint("search...");
         mSearchView.setOnCloseListener(new SearchView.OnCloseListener() {
             @Override
             public boolean onClose() {

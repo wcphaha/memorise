@@ -1,5 +1,6 @@
 package com.example.memorise.ui.home;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -17,9 +18,11 @@ import androidx.lifecycle.ViewModelProviders;
 
 import com.android.volley.RequestQueue;
 import com.android.volley.toolbox.Volley;
+import com.example.memorise.MainActivity;
 import com.example.memorise.R;
 import com.example.memorise.StaticVar.Variable;
 import com.example.memorise.threads.HomeGet;
+import com.example.memorise.webactivity;
 
 public class HomeFragment extends Fragment {
 
@@ -40,9 +43,19 @@ public class HomeFragment extends Fragment {
         final Button know = root.findViewById(R.id.know);
         final FrameLayout frameLayout = root.findViewById(R.id.shows);
         final ProgressBar progressBar = root.findViewById(R.id.progress);
+        final TextView elaborate = root.findViewById(R.id.elaborate);
         mQueue = Volley.newRequestQueue(getActivity());
         progressBar.setMax(Variable.progress_max);
         progressBar.setProgress(Variable.progress);
+
+        elaborate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Variable.search_vocab = (String) textView.getText();
+                Intent intent = new Intent(getActivity(), webactivity.class);
+                startActivity(intent);
+            }
+        });
 
         know.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -55,7 +68,7 @@ public class HomeFragment extends Fragment {
                     Toast.makeText(getActivity(),"今日任务完成",Toast.LENGTH_SHORT)
                             .show();
                 }
-
+                elaborate.setVisibility(View.INVISIBLE);
                 btns.setVisibility(View.INVISIBLE);
                 tip1.setVisibility(View.VISIBLE);
                 tip2.setVisibility(View.VISIBLE);
@@ -66,6 +79,7 @@ public class HomeFragment extends Fragment {
         frameLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                elaborate.setVisibility(View.VISIBLE);
                 btns.setVisibility(View.VISIBLE);
                 tip1.setVisibility(View.INVISIBLE);
                 tip2.setVisibility(View.INVISIBLE);

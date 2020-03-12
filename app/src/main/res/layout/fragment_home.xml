@@ -60,6 +60,16 @@
             android:textColor="@color/black"
             android:textAlignment="center"
             />
+        <TextView
+            android:visibility="invisible"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/elaborate"
+            android:textAlignment="center"
+            android:layout_marginTop="360dp"
+            android:text="点我查看详细例句及解释"
+            android:textColor="@color/colorPrimary"
+            android:textSize="14sp"/>
         <LinearLayout
             android:id="@+id/btns"
             android:visibility="invisible"

@@ -15,5 +15,6 @@
         android:id="@+id/chart_tag"
         android:textAlignment="center"
         android:textColor="@color/colorPrimary"
+        android:layout_marginTop="5dp"
         android:text="- - - 一周记忆情况 - - -"/>
 </LinearLayout>

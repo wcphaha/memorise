@@ -10,6 +10,7 @@ public class Variable {
     public static int progress_max = 30;
     public static int progress;
     public static int do_not_fresh_home = 0;
+    public static int[] mem = {82,3,15};
     public static User user;
     public static Vocabulary[] vocabularies = {
             new Vocabulary()

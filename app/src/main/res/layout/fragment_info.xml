@@ -12,9 +12,23 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/chart_tag"
+        android:id="@+id/linechart_tag"
         android:textAlignment="center"
         android:textColor="@color/colorPrimary"
         android:layout_marginTop="5dp"
-        android:text="- - - 一周记忆情况 - - -"/>
+        android:text="- - - 一周学习情况 - - -"/>
+    <lecho.lib.hellocharts.view.PieChartView
+        android:layout_width="wrap_content"
+        android:layout_marginTop="50dp"
+        android:layout_height="250dp"
+        android:id="@+id/pie_chart"
+        />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/piechart_tag"
+        android:textAlignment="center"
+        android:textColor="@color/colorPrimary"
+        android:layout_marginTop="20dp"
+        android:text="- - - 记忆度 - - -"/>
 </LinearLayout>

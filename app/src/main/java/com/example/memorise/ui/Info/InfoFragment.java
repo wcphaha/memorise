@@ -20,6 +20,7 @@ import com.bumptech.glide.Glide;
 import com.example.memorise.R;
 import com.example.memorise.StaticVar.Variable;
 import com.example.memorise.chart.linechart;
+import com.example.memorise.chart.piechart;
 import com.example.memorise.object.User;
 import com.example.memorise.sql.DatabaseHelper;
 import com.example.memorise.sql.MyDataBase;
@@ -37,11 +38,13 @@ import lecho.lib.hellocharts.model.PointValue;
 import lecho.lib.hellocharts.model.ValueShape;
 import lecho.lib.hellocharts.model.Viewport;
 import lecho.lib.hellocharts.view.LineChartView;
+import lecho.lib.hellocharts.view.PieChartView;
 
 public class InfoFragment extends Fragment {
 
     private InfoViewModel infoViewModel;
     private LineChartView line;
+    private PieChartView pie;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -50,10 +53,11 @@ public class InfoFragment extends Fragment {
         View root = inflater.inflate(R.layout.fragment_info, container, false);
 
         line = root.findViewById(R.id.line_chart);
-        linechart chart = new linechart(line);
-        chart.show();
-
-
+        linechart chart1 = new linechart(line);
+        chart1.show();
+        pie = root.findViewById(R.id.pie_chart);
+        piechart chart2 = new piechart(pie);
+        chart2.show();
         return root;
     }
 

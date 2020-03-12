@@ -16,6 +16,8 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.example.memorise.R;
+import com.example.memorise.StaticVar.Variable;
+import com.example.memorise.object.User;
 import com.example.memorise.sql.DatabaseHelper;
 
 
@@ -28,6 +30,7 @@ public class SetFragment extends Fragment {
         setViewModel =
                 ViewModelProviders.of(this).get(SetViewModel.class);
         View root = inflater.inflate(R.layout.fragment_set, container, false);
+
 
         return root;
     }

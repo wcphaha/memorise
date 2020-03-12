@@ -42,6 +42,7 @@ public class HomeFragment extends Fragment {
         final ProgressBar progressBar = root.findViewById(R.id.progress);
         mQueue = Volley.newRequestQueue(getActivity());
         progressBar.setMax(Variable.progress_max);
+        progressBar.setProgress(Variable.progress);
 
         know.setOnClickListener(new View.OnClickListener() {
             @Override

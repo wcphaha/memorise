@@ -16,7 +16,9 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase db) {//初始化一个数据库，只在第一次调用时运行
         //不同设备第一次运行程序时，会调用这个函数，初始化数据库
         //之后调用此类不会运行这个函数
-
+        String SQL;
+        SQL = "create table user ( name VARCHAR(50),password VARCHAR(50),headpath VARCHAR(50),address VARCHAR(50),sign VARCHAR(50),email VARCHAR(50),dayplan INT )";
+        db.execSQL(SQL);
     }
 
     @Override

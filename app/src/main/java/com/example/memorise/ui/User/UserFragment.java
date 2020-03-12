@@ -23,12 +23,8 @@ public class UserFragment extends Fragment {
         userViewModel =
                 ViewModelProviders.of(this).get(UserViewModel.class);
         View root = inflater.inflate(R.layout.fragment_user, container, false);
-        final TextView textView = root.findViewById(R.id.text_notifications);
 
-        final ImageView imageView = root.findViewById(R.id.image);
-        Glide.with(this).load("https://s2.ax1x.com/2020/02/02/1YPRCn.jpg")
-                .into(imageView);
-        textView.setText("这里是记个人用户界面");
+
         return root;
     }
 }

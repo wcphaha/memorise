@@ -29,7 +29,7 @@ public class linechart {
 
     private LineChartView lineChart;
     String[] date;//X轴的标注
-    int[] score = {45, 23, 12, 2, 19, 5, Variable.progress};//图表的数据点
+    int[] score = Variable.getHistory();//图表的数据点
     private List<PointValue> mPointValues = new ArrayList<PointValue>();
     private List<AxisValue> mAxisXValues = new ArrayList<AxisValue>();
     public linechart(LineChartView lineChart) {

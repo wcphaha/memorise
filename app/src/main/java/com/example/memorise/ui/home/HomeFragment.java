@@ -63,6 +63,7 @@ public class HomeFragment extends Fragment {
                 HomeGet h1 = new HomeGet(mQueue,textView,mean);
                 h1.run();
                 Variable.progress +=1;
+                Variable.mem[0]+=1;
                 progressBar.setProgress(Variable.progress);
                 if (Variable.progress == Variable.progress_max){
                     Toast.makeText(getActivity(),"今日任务完成",Toast.LENGTH_SHORT)

@@ -45,7 +45,7 @@ public class HomeFragment extends Fragment {
         final ProgressBar progressBar = root.findViewById(R.id.progress);
         final TextView elaborate = root.findViewById(R.id.elaborate);
         mQueue = Volley.newRequestQueue(getActivity());
-        progressBar.setMax(Variable.progress_max);
+        progressBar.setMax(Variable.user.dayplan);
         progressBar.setProgress(Variable.progress);
 
         elaborate.setOnClickListener(new View.OnClickListener() {
@@ -65,7 +65,7 @@ public class HomeFragment extends Fragment {
                 Variable.progress +=1;
                 Variable.mem[0]+=1;
                 progressBar.setProgress(Variable.progress);
-                if (Variable.progress == Variable.progress_max){
+                if (Variable.progress == Variable.user.dayplan){
                     Toast.makeText(getActivity(),"今日任务完成",Toast.LENGTH_SHORT)
                             .show();
                 }

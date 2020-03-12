@@ -10,7 +10,7 @@ public class User {
     public int dayplan;
 
 
-    public User(String name,String password,String headpath,String address,String sign,String email,int dayplan){
+    public User(String name, String password, String headpath, String address, String sign, String email, int dayplan) {
         this.address = address;
         this.password = password;
         this.headpath = headpath;
@@ -19,7 +19,8 @@ public class User {
         this.sign = sign;
         this.email = email;
     }
-    public User(){
+
+    public User() {
 
     }
 }

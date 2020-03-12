@@ -7,8 +7,8 @@ public class Variable {
     public static int progress_max = 30;
     public static int progress;
     public static int do_not_fresh_home = 0;
-    public static int[] mem = {0,5,10};
-    public static int[] history;
+    public static int[] mem = {0,0,0};
+    public static int[] history = new int[7];
     public static User user = new User(
             "神秘人",
             "123123",
@@ -16,13 +16,14 @@ public class Variable {
             "火星",
             "这个人很神秘，什么都没留下",
             "123@qqq.com",
+            0,
             30);
     public static Vocabulary[] vocabularies = {
             new Vocabulary()
     };
     public static int[] getHistory(){
-        history = new int[]{0,0,0,0,0,0,progress};
-        return history;
+        int[] h = new int[]{history[0],history[1],history[2],history[3],history[4],history[5],progress};
+        return h;
     }
     public static String search_vocab ;
 }

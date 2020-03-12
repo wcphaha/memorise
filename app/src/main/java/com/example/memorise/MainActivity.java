@@ -1,6 +1,7 @@
 package com.example.memorise;
 
 import android.content.Intent;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -9,6 +10,8 @@ import android.webkit.WebView;
 import android.widget.SearchView;
 
 import com.example.memorise.StaticVar.Variable;
+import com.example.memorise.sql.DatabaseHelper;
+import com.example.memorise.threads.InitUser;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.navigation.NavController;
@@ -74,6 +77,13 @@ public class MainActivity extends AppCompatActivity {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
         NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
         NavigationUI.setupWithNavController(navView, navController);
+
+
+        //////////!!!!!!!!!!!!!!!!!!!!!!!!!!!
+        DatabaseHelper databaseHelper = new DatabaseHelper(this,"user_db",null,1);
+        SQLiteDatabase db = databaseHelper.getWritableDatabase();
+        InitUser initUser = new InitUser(db);
+        initUser.run();
     }
 
 }

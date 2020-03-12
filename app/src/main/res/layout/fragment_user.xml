@@ -40,17 +40,6 @@
 
         </LinearLayout>
     </LinearLayout>
-    //分隔线
-
-    <View
-        android:layout_width="match_parent"
-        android:layout_marginRight="15dp"
-        android:layout_marginLeft="15dp"
-        android:layout_height="1dp"
-        android:layout_marginTop="5dp"
-        android:layout_marginBottom="5dp"
-        android:background="#009688"
-        />
 
     <LinearLayout
 
@@ -64,7 +53,6 @@
             android:paddingLeft="15dp"
             android:text="每日学习量"
             android:textAlignment="center"
-
             android:textSize="18sp" />
 
         <EditText
@@ -73,21 +61,84 @@
             android:layout_height="match_parent"
             android:layout_marginLeft="220dp"
             android:cursorVisible="false"
-            android:textAlignment="center"
             android:selectAllOnFocus="true"
+            android:textAlignment="center"
             android:textColor="@color/colorPrimary" />
     </LinearLayout>
-    //分隔线
+    <LinearLayout
 
-    <View
         android:layout_width="match_parent"
-        android:layout_marginRight="15dp"
-        android:layout_marginLeft="15dp"
-        android:layout_height="1dp"
-        android:layout_marginTop="5dp"
-        android:layout_marginBottom="5dp"
-        android:background="#009688"
-        />
+        android:layout_height="40dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingLeft="15dp"
+            android:text="邮箱账号"
+            android:textAlignment="center"
+            android:textSize="18sp" />
+
+        <EditText
+            android:id="@+id/user_email"
+            android:layout_width="202dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="100dp"
+            android:cursorVisible="false"
+            android:paddingTop="10dp"
+            android:selectAllOnFocus="true"
+            android:textAlignment="center"
+            android:textColor="@color/colorPrimary" />
+    </LinearLayout>
+
+    <LinearLayout
+
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingLeft="15dp"
+            android:text="所在地"
+            android:textAlignment="center"
+            android:textSize="18sp" />
+
+        <EditText
+            android:id="@+id/user_address"
+            android:layout_width="202dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="120dp"
+            android:cursorVisible="false"
+            android:selectAllOnFocus="true"
+            android:textAlignment="center"
+            android:textColor="@color/colorPrimary" />
+    </LinearLayout>
+    <LinearLayout
+
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingLeft="15dp"
+            android:text="已记忆"
+            android:textAlignment="center"
+            android:textSize="18sp" />
+
+        <EditText
+            android:id="@+id/user_sum"
+            android:layout_width="202dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="120dp"
+            android:cursorVisible="false"
+            android:selectAllOnFocus="true"
+            android:textAlignment="center"
+            android:textColor="@color/colorPrimary" />
+    </LinearLayout>
 
 
 </LinearLayout>

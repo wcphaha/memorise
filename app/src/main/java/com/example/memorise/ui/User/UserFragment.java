@@ -31,10 +31,26 @@ public class UserFragment extends Fragment {
         final TextView user_name = root.findViewById(R.id.user_name);
         final TextView sign = root.findViewById(R.id.sign);
         final EditText plan = root.findViewById(R.id.user_plan);
+        final EditText email = root.findViewById(R.id.user_email);
+        final EditText address = root.findViewById(R.id.user_address);
+        final EditText sum = root.findViewById(R.id.user_sum);
+        sum.setText(String.valueOf(Variable.user.sumvocab));
+        email.setText(Variable.user.email);
+        address.setText(Variable.user.address);
         user_name.setText(Variable.user.name);
         sign.setText(Variable.user.sign);
         plan.setText(String.valueOf(Variable.user.dayplan));
 
+        sum.setOnEditorActionListener(new TextView.OnEditorActionListener() {
+            @Override
+            public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
+                if (event.getKeyCode() == KeyEvent.KEYCODE_ENTER){
+                    Toast.makeText(getActivity(),"不能作弊哦！",Toast.LENGTH_SHORT)
+                            .show();
+                }
+                return true;
+            }
+        });
         plan.setOnEditorActionListener(new TextView.OnEditorActionListener() {
             @Override
             public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {

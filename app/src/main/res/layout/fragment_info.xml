@@ -30,5 +30,5 @@
         android:textAlignment="center"
         android:textColor="@color/colorPrimary"
         android:layout_marginTop="20dp"
-        android:text="- - - 记忆度 - - -"/>
+        android:text="- - - 今日单词分析 - - -"/>
 </LinearLayout>

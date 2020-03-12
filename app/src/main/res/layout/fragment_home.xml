@@ -86,6 +86,7 @@
                 android:layout_margin="10dp"
                 />
             <Button
+                android:id="@+id/unclear"
                 android:layout_weight="1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -94,6 +95,7 @@
                 android:layout_margin="10dp"
                 />
             <Button
+                android:id="@+id/forget"
                 android:layout_weight="1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

@@ -41,6 +41,8 @@ public class HomeFragment extends Fragment {
         final TextView tip2 = root.findViewById(R.id.tip2);
         final LinearLayout btns = root.findViewById(R.id.btns);
         final Button know = root.findViewById(R.id.know);
+        final Button unclear = root.findViewById(R.id.unclear);
+        final Button forget = root.findViewById(R.id.forget);
         final FrameLayout frameLayout = root.findViewById(R.id.shows);
         final ProgressBar progressBar = root.findViewById(R.id.progress);
         final TextView elaborate = root.findViewById(R.id.elaborate);
@@ -65,8 +67,48 @@ public class HomeFragment extends Fragment {
                 Variable.progress +=1;
                 Variable.mem[0]+=1;
                 progressBar.setProgress(Variable.progress);
-                if (Variable.progress == Variable.user.dayplan){
+                if (Variable.progress >= Variable.user.dayplan){
                     Toast.makeText(getActivity(),"今日任务完成",Toast.LENGTH_SHORT)
+                            .show();
+                }
+                elaborate.setVisibility(View.INVISIBLE);
+                btns.setVisibility(View.INVISIBLE);
+                tip1.setVisibility(View.VISIBLE);
+                tip2.setVisibility(View.VISIBLE);
+                mean.setVisibility(View.INVISIBLE);
+
+            }
+        });
+        unclear.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                HomeGet h1 = new HomeGet(mQueue,textView,mean);
+                h1.run();
+                Variable.progress +=1;
+                Variable.mem[1]+=1;
+                progressBar.setProgress(Variable.progress);
+                if (Variable.progress >= Variable.user.dayplan){
+                    Toast.makeText(getActivity(),"今日任务完成",Toast.LENGTH_SHORT)
+                            .show();
+                }
+                elaborate.setVisibility(View.INVISIBLE);
+                btns.setVisibility(View.INVISIBLE);
+                tip1.setVisibility(View.VISIBLE);
+                tip2.setVisibility(View.VISIBLE);
+                mean.setVisibility(View.INVISIBLE);
+
+            }
+        });
+        forget.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                HomeGet h1 = new HomeGet(mQueue,textView,mean);
+                h1.run();
+                Variable.progress +=1;
+                Variable.mem[2]+=1;
+                progressBar.setProgress(Variable.progress);
+                if (Variable.progress >= Variable.user.dayplan){
+                    Toast.makeText(getActivity(),"今日任务完成!",Toast.LENGTH_SHORT)
                             .show();
                 }
                 elaborate.setVisibility(View.INVISIBLE);

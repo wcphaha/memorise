@@ -59,6 +59,7 @@ public class InitData extends Thread {
             d6 = d7;
             mdb.delete("delete from history where seven = "+ d7 +"");
             mdb.insert("insert into history ( one,two,three,four,five,six,seven ) values ("+ d1 +","+ d2 +","+ d3 +","+ d4 +","+ d5 +"," +d6+ ",0)");
+
         }
     }
 }

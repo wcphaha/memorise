@@ -32,17 +32,15 @@ public class SaveData extends Thread {
         mdb.update("update mem set forget = "+ m3 +" where date = '"+ now +"'");
 
 
-        //再保存history今日进度
+        //保存history今日进度
         int daysum = Variable.progress;
         System.out.println("111111"+daysum);
         mdb.update("update history set seven = "+ daysum +"");
         String t = mdb.query("seven","select seven from history")[0];
         System.out.println("111111"+t);
 
-
-        //保存记单词总数和今天的进度
+        //更新记单词总数
         int sum = Variable.user.sumvocab;
-        sum = sum + Variable.progress;
         mdb.update("update user set sum = "+ sum +"");
 
     }

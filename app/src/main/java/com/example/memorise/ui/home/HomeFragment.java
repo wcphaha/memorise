@@ -66,6 +66,7 @@ public class HomeFragment extends Fragment {
                 h1.run();
                 Variable.progress +=1;
                 Variable.mem[0]+=1;
+                Variable.user.sumvocab += 1;
                 progressBar.setProgress(Variable.progress);
                 if (Variable.progress >= Variable.user.dayplan){
                     Toast.makeText(getActivity(),"今日任务完成",Toast.LENGTH_SHORT)

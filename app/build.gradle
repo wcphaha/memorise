@@ -10,6 +10,14 @@ android {
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+        android.applicationVariants.all {
+            variant ->
+                variant.outputs.all {
+                    // 此处指定生成的apk文件名
+                    outputFileName = "记单词.apk"
+                }
+        }
     }
     buildTypes {
         release {

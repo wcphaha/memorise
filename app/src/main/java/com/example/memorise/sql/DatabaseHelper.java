@@ -6,6 +6,8 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 import com.example.memorise.StaticVar.Variable;
 
+import java.util.Date;
+
 public class DatabaseHelper extends SQLiteOpenHelper {
 
     public DatabaseHelper(Context context, String name, SQLiteDatabase.CursorFactory factory, int version) {
@@ -25,6 +27,12 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         db.execSQL(create);
         String insert1 = "insert into history ( one,two,three,four,five,six,seven ) values (12,23,32,23,9,50,0)";
         db.execSQL(insert1);
+        String create2 = "create table mem ( date VARCHAR(50),know INT,unclear INT,forget INT )";
+        db.execSQL(create2);
+        Date date = new Date();
+        String d = date.toString().substring(0,10);
+        String insert2 = "insert into mem (date,know,unclear,forget) values ('"+ d +"',0,0,0)";
+        db.execSQL(insert2);
     }
 
     @Override

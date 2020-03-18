@@ -85,11 +85,10 @@ public class MainActivity extends AppCompatActivity {
         //////////!!!!!!!!!!!!!!!!!!!!!!!!!!!
         DatabaseHelper databaseHelper = new DatabaseHelper(this,"user4_db",null,1);
         SQLiteDatabase db = databaseHelper.getWritableDatabase();
-        InitUser initUser = new InitUser(db);
-        initUser.run();
         InitData initData = new InitData(db);
         initData.run();
-
+        InitUser initUser = new InitUser(db);
+        initUser.run();
     }
 
     @Override

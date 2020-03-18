@@ -34,7 +34,6 @@ public class SaveData extends Thread {
 
         //保存history今日进度
         int daysum = Variable.progress;
-        System.out.println("111111"+daysum);
         mdb.update("update history set seven = "+ daysum +"");
         String t = mdb.query("seven","select seven from history")[0];
         System.out.println("111111"+t);

@@ -36,7 +36,6 @@ public class SaveData extends Thread {
         int daysum = Variable.progress;
         mdb.update("update history set seven = "+ daysum +"");
         String t = mdb.query("seven","select seven from history")[0];
-        System.out.println("111111"+t);
 
         //更新记单词总数
         int sum = Variable.user.sumvocab;

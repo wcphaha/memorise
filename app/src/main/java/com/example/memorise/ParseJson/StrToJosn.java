@@ -12,4 +12,8 @@ public  class StrToJosn {
         JSONObject json = list.getJSONObject(0);
         return json;
     }
+    public static JSONObject ParseJson(String str){
+        JSONObject json = JSON.parseObject(str);
+        return json;
+    }
 }

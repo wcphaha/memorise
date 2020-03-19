@@ -1,7 +1,5 @@
 package com.example.memorise;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.app.Activity;
 import android.os.Bundle;
 import android.webkit.WebSettings;
@@ -9,13 +7,13 @@ import android.webkit.WebView;
 
 import com.example.memorise.StaticVar.Variable;
 
-public class webactivity extends Activity {
+public class webActivity extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        setContentView(R.layout.activity_webactivity);
+        setContentView(R.layout.activity_web);
         // 创建WebView
         WebView webView = findViewById(R.id.web);
         // 设置支持JavaScript

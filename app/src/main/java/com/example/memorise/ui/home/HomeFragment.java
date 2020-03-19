@@ -18,11 +18,10 @@ import androidx.lifecycle.ViewModelProviders;
 
 import com.android.volley.RequestQueue;
 import com.android.volley.toolbox.Volley;
-import com.example.memorise.MainActivity;
 import com.example.memorise.R;
 import com.example.memorise.StaticVar.Variable;
 import com.example.memorise.threads.HomeGet;
-import com.example.memorise.webactivity;
+import com.example.memorise.webActivity;
 
 public class HomeFragment extends Fragment {
 
@@ -54,7 +53,7 @@ public class HomeFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 Variable.search_vocab = (String) textView.getText();
-                Intent intent = new Intent(getActivity(), webactivity.class);
+                Intent intent = new Intent(getActivity(), webActivity.class);
                 startActivity(intent);
             }
         });

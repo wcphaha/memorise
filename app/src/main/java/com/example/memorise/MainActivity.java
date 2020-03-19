@@ -5,8 +5,6 @@ import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.webkit.WebSettings;
-import android.webkit.WebView;
 import android.widget.SearchView;
 
 import com.example.memorise.StaticVar.Variable;
@@ -20,8 +18,6 @@ import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
-
-import java.util.Date;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -56,7 +52,7 @@ public class MainActivity extends AppCompatActivity {
             public boolean onQueryTextSubmit(String s) {
                 //输入完毕后点击搜索按钮事件
                 Variable.search_vocab = s;
-                Intent intent = new Intent(MainActivity.this,webactivity.class);
+                Intent intent = new Intent(MainActivity.this, webActivity.class);
                 startActivity(intent);
                 return true;
             }

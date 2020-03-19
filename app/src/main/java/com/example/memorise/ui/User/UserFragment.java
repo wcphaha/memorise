@@ -5,6 +5,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
@@ -25,11 +26,17 @@ import androidx.core.app.ActivityCompat;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProviders;
 
+import com.android.volley.RequestQueue;
+import com.android.volley.toolbox.Volley;
 import com.bumptech.glide.Glide;
 import com.example.memorise.R;
 import com.example.memorise.StaticVar.Variable;
+import com.example.memorise.sql.DatabaseHelper;
+import com.example.memorise.threads.UserPost;
 
 public class UserFragment extends Fragment {
+
+    public RequestQueue mQueue;//一个请求队列，发请求时，将请求添加进来
     private static final int REQUEST_EXTERNAL_STORAGE = 1;
     private static String[] PERMISSIONS_STORAGE = {
             Manifest.permission.READ_EXTERNAL_STORAGE,
@@ -51,6 +58,7 @@ public class UserFragment extends Fragment {
         final EditText email = root.findViewById(R.id.user_email);
         final EditText address = root.findViewById(R.id.user_address);
         final EditText sum = root.findViewById(R.id.user_sum);
+        mQueue = Volley.newRequestQueue(getActivity());
         sum.setText(String.valueOf(Variable.user.sumvocab));
         email.setText(Variable.user.email);
         address.setText(Variable.user.address);
@@ -66,8 +74,6 @@ public class UserFragment extends Fragment {
                 Intent intent = new Intent(Intent.ACTION_PICK,
                         android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
                 startActivityForResult(intent, IMAGE);
-                //这里调用线程发送post请求，将返回的URL设置为Variable.user.headpath
-                //同时保存到本地数据库
             }
         });
         sum.setOnEditorActionListener(new TextView.OnEditorActionListener() {
@@ -115,6 +121,12 @@ public class UserFragment extends Fragment {
     private void showImage(String imaePath){
         Bitmap bm = BitmapFactory.decodeFile(imaePath);
         ((ImageView)getActivity().findViewById(R.id.headphoto)).setImageBitmap(bm);
+        //获取本地数据库
+        DatabaseHelper databaseHelper = new DatabaseHelper(getContext(),"user4_db",null,1);
+        SQLiteDatabase db = databaseHelper.getWritableDatabase();
+        //调用上传图片线程
+        UserPost userPost = new UserPost(mQueue,bm,db);
+        userPost.run();
     }
     public static void verifyStoragePermissions(Activity activity) {
         // Check if we have write permission

@@ -1,5 +1,6 @@
 package com.example.memorise.threads;
 
+import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.util.Base64;
@@ -11,6 +12,10 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.memorise.MainActivity;
+import com.example.memorise.ParseJson.StrToJosn;
+import com.example.memorise.StaticVar.Variable;
+import com.example.memorise.sql.DatabaseHelper;
+import com.example.memorise.sql.MyDataBase;
 
 import java.io.ByteArrayOutputStream;
 import java.io.FileInputStream;
@@ -18,15 +23,17 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
-public class PostPhoto extends Thread {
+public class UserPost extends Thread {
+    public SQLiteDatabase db;
     public StringRequest stringRequest;
     public RequestQueue mQueue;
     public Bitmap bitmap;
     public FileInputStream fis;
 
-    public PostPhoto(RequestQueue mQueue,Bitmap bitmap) {
+    public UserPost(RequestQueue mQueue, Bitmap bitmap, SQLiteDatabase db) {
         this.mQueue = mQueue;
         this.bitmap = bitmap;
+        this.db = db;
     }
 
     @Override
@@ -69,16 +76,22 @@ public class PostPhoto extends Thread {
     }
 
     public void post_image(final String image) {
-        stringRequest = new StringRequest(Request.Method.POST, "请求地址", new Response.Listener<String>() {
+        final MyDataBase mdb = new MyDataBase(db);
+        stringRequest = new StringRequest(Request.Method.POST, "http://132.232.45.108:5000/liuyan/header", new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
-                // 返回的json参数 response
-
+                // 返回的参数 response
+                //修改数据库
+                //修改User变量
+                Variable.user.headpath = response;
+                mdb.update("update user set headpath = '"+ Variable.user.headpath +"';");
+                System.out.println("11111:"+response);
             }
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
                 // 请求错误就会进入这里
+                System.out.println("222222"+"啊啊啊啊啊");
             }
         }) {
             // 像服务器post提交参数的方法
@@ -86,7 +99,7 @@ public class PostPhoto extends Thread {
             protected Map<String, String> getParams() {
                 // 在这里设置需要post的参数
                 HashMap<String, String> map = new HashMap<String, String>();
-                map.put("user_img", image);
+                map.put("imgData", image);
                 return map;
             }
         };

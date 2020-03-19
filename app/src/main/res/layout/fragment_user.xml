@@ -45,6 +45,8 @@
     </LinearLayout>
 
     <View
+        android:layout_marginTop="6dp"
+        android:layout_marginBottom="6dp"
         android:layout_width="match_parent"
         android:layout_height="1dp"
         android:background="@color/line"
@@ -66,7 +68,6 @@
             android:id="@+id/user_plan"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="50"
             android:textAlignment="textEnd"
             android:layout_gravity="center_vertical"
             android:textColor="@color/colorPrimary"
@@ -74,6 +75,8 @@
     </LinearLayout>
 
     <View
+        android:layout_marginTop="6dp"
+        android:layout_marginBottom="6dp"
         android:layout_width="match_parent"
         android:layout_height="1dp"
         android:background="@color/line"
@@ -101,6 +104,8 @@
     </LinearLayout>
 
     <View
+        android:layout_marginTop="6dp"
+        android:layout_marginBottom="6dp"
         android:layout_width="match_parent"
         android:layout_height="1dp"
         android:background="@color/line"
@@ -129,6 +134,8 @@
     </LinearLayout>
 
     <View
+        android:layout_marginTop="6dp"
+        android:layout_marginBottom="6dp"
         android:layout_width="match_parent"
         android:layout_height="1dp"
         android:background="@color/line"
@@ -156,4 +163,11 @@
             android:layout_gravity="center_vertical"
             android:textColor="@color/colorPrimary" />
     </LinearLayout>
+    <View
+        android:layout_marginTop="6dp"
+        android:layout_marginBottom="6dp"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/line"
+        />
 </LinearLayout>

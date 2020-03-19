@@ -54,10 +54,10 @@ public class UserFragment extends Fragment {
         final ImageView headphoto = root.findViewById(R.id.headphoto);
         final TextView user_name = root.findViewById(R.id.user_name);
         final TextView sign = root.findViewById(R.id.sign);
-        final EditText plan = root.findViewById(R.id.user_plan);
-        final EditText email = root.findViewById(R.id.user_email);
-        final EditText address = root.findViewById(R.id.user_address);
-        final EditText sum = root.findViewById(R.id.user_sum);
+        final TextView plan = root.findViewById(R.id.user_plan);
+        final TextView email = root.findViewById(R.id.user_email);
+        final TextView address = root.findViewById(R.id.user_address);
+        final TextView sum = root.findViewById(R.id.user_sum);
         mQueue = Volley.newRequestQueue(getActivity());
         sum.setText(String.valueOf(Variable.user.sumvocab));
         email.setText(Variable.user.email);
@@ -74,27 +74,6 @@ public class UserFragment extends Fragment {
                 Intent intent = new Intent(Intent.ACTION_PICK,
                         android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
                 startActivityForResult(intent, IMAGE);
-            }
-        });
-        sum.setOnEditorActionListener(new TextView.OnEditorActionListener() {
-            @Override
-            public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
-                if (event.getKeyCode() == KeyEvent.KEYCODE_ENTER){
-                    Toast.makeText(getActivity(),"不能作弊哦！",Toast.LENGTH_SHORT)
-                            .show();
-                }
-                return true;
-            }
-        });
-        plan.setOnEditorActionListener(new TextView.OnEditorActionListener() {
-            @Override
-            public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
-                if (event.getKeyCode() == KeyEvent.KEYCODE_ENTER){
-                    Variable.user.dayplan = Integer.valueOf(plan.getText().toString());
-                    Toast.makeText(getActivity(),"修改成功",Toast.LENGTH_SHORT)
-                            .show();
-                }
-                return true;
             }
         });
         Glide.with(this).load(Variable.user.headpath).into(headphoto);

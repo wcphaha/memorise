@@ -17,7 +17,7 @@ public class InitUser extends Thread {
         init();
     }
     public void init(){
-        String name,password,headpath,address,dayplan,sign,sum,email;
+        String name,password,headpath,address,dayplan,sign,sum,email,islogin;
         MyDataBase mdb = new MyDataBase(db);
         name =  mdb.query("name","select name from user")[0];
         Variable.user.name = name;
@@ -42,6 +42,9 @@ public class InitUser extends Thread {
 
         email = mdb.query("email","select email from user")[0];
         Variable.user.email = email;
+
+        islogin = mdb.query("islogin","select islogin from user")[0];
+        Variable.user.islogin = islogin;
 
         String d1,d2,d3,d4,d5,d6,d7;
         d1 = mdb.query("one","select one from history")[0];

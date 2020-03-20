@@ -9,9 +9,9 @@ public class User {
     public String email;
     public int sumvocab;
     public int dayplan;
+    public String islogin;
 
-
-    public User(String name, String password, String headpath, String address, String sign, String email,int sum, int dayplan) {
+    public User(String name, String password, String headpath, String address, String sign, String email,int sum, int dayplan,String islogin) {
         this.address = address;
         this.password = password;
         this.headpath = headpath;
@@ -20,6 +20,7 @@ public class User {
         this.sign = sign;
         this.sumvocab = sum;
         this.email = email;
+        this.islogin = islogin;
     }
 
     public User() {

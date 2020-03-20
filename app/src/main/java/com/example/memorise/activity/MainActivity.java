@@ -13,6 +13,7 @@ import com.example.memorise.sql.DatabaseHelper;
 import com.example.memorise.threads.InitData;
 import com.example.memorise.threads.InitUser;
 import com.example.memorise.threads.SaveData;
+import com.example.memorise.threads.SaveUser;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.navigation.NavController;
@@ -80,7 +81,7 @@ public class MainActivity extends AppCompatActivity {
         NavigationUI.setupWithNavController(navView, navController);
 
         //////////!!!!!!!!!!!!!!!!!!!!!!!!!!!
-        DatabaseHelper databaseHelper = new DatabaseHelper(this,"user4_db",null,1);
+        DatabaseHelper databaseHelper = new DatabaseHelper(this,Variable.datebase,null,1);
         SQLiteDatabase db = databaseHelper.getWritableDatabase();
         InitData initData = new InitData(db);
         initData.run();
@@ -91,9 +92,11 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onPause() {
         super.onPause();
-        DatabaseHelper databaseHelper = new DatabaseHelper(this,"user4_db",null,1);
+        DatabaseHelper databaseHelper = new DatabaseHelper(this,Variable.datebase,null,1);
         SQLiteDatabase db = databaseHelper.getWritableDatabase();
         SaveData saveData = new SaveData(db);
         saveData.run();
+        SaveUser saveUser = new SaveUser(db);
+        saveUser.run();
     }
 }

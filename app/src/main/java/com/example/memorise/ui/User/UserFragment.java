@@ -101,7 +101,7 @@ public class UserFragment extends Fragment {
         Bitmap bm = BitmapFactory.decodeFile(imaePath);
         ((ImageView)getActivity().findViewById(R.id.headphoto)).setImageBitmap(bm);
         //获取本地数据库
-        DatabaseHelper databaseHelper = new DatabaseHelper(getContext(),"user4_db",null,1);
+        DatabaseHelper databaseHelper = new DatabaseHelper(getContext(),Variable.datebase,null,1);
         SQLiteDatabase db = databaseHelper.getWritableDatabase();
         //调用上传图片线程
         UserPost userPost = new UserPost(mQueue,bm,db);

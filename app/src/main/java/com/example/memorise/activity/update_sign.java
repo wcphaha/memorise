@@ -27,14 +27,19 @@ public class update_sign extends AppCompatActivity {
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Variable.user.sign = editText.getText().toString();
-                DatabaseHelper databaseHelper = new DatabaseHelper(getApplicationContext(),"user4_db",null,1);
-                SQLiteDatabase db = databaseHelper.getWritableDatabase();
-                SaveUser saveUser = new SaveUser( db );
-                saveUser.run();
+                if (Variable.user.islogin.compareTo("true") == 0) {
+                    Variable.user.sign = editText.getText().toString();
+                    DatabaseHelper databaseHelper = new DatabaseHelper(getApplicationContext(), Variable.datebase, null, 1);
+                    SQLiteDatabase db = databaseHelper.getWritableDatabase();
+                    SaveUser saveUser = new SaveUser(db);
+                    saveUser.run();
 
-                Toast.makeText(getApplicationContext(),"修改签名成功！",Toast.LENGTH_SHORT)
-                        .show();
+                    Toast.makeText(getApplicationContext(), "修改签名成功！", Toast.LENGTH_SHORT)
+                            .show();
+                }else {
+                    Toast.makeText(getApplicationContext(), "先去登录吧！", Toast.LENGTH_SHORT)
+                            .show();
+                }
             }
         });
     }

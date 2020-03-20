@@ -31,5 +31,7 @@ public class SaveUser extends Thread {
 
         mdb.update("update user set address = '"+ Variable.user.address +"'");
 
+        mdb.update("update user set islogin = '"+ Variable.user.islogin +"'");
+
     }
 }

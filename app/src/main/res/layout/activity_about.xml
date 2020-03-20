@@ -27,7 +27,7 @@
         android:textAlignment="center"
         android:layout_marginTop="4dp"
         android:textSize="10sp"
-        android:text="成都大学2017物联网一班"/>
+        android:text="成都大学2017物联网一班吴成沛"/>
     <TextView
         android:paddingHorizontal="30dp"
         android:layout_width="match_parent"

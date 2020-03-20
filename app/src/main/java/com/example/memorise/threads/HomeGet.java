@@ -36,7 +36,7 @@ public class HomeGet extends Thread {
                     public void onResponse(String response) {
 
                         JSONObject json = StrToJosn.ParseJsonArray(response);
-                        Variable.vocabularies[0]= JsonToObject.toObject(json);
+                        Variable.vocabularies[0]= JsonToObject.toVocabularyObject(json);
                         //播放单词
 //                        Play play = new Play(Variable.vocabularies[0].vocab);
 //                        play.run();

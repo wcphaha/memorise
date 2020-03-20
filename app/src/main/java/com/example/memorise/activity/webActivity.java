@@ -1,10 +1,11 @@
-package com.example.memorise;
+package com.example.memorise.activity;
 
 import android.app.Activity;
 import android.os.Bundle;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 
+import com.example.memorise.R;
 import com.example.memorise.StaticVar.Variable;
 
 public class webActivity extends Activity {

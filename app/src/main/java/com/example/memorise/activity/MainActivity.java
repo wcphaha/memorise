@@ -1,4 +1,4 @@
-package com.example.memorise;
+package com.example.memorise.activity;
 
 import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
@@ -7,6 +7,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.SearchView;
 
+import com.example.memorise.R;
 import com.example.memorise.StaticVar.Variable;
 import com.example.memorise.sql.DatabaseHelper;
 import com.example.memorise.threads.InitData;

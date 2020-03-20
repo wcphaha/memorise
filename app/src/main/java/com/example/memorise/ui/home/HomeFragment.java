@@ -21,7 +21,7 @@ import com.android.volley.toolbox.Volley;
 import com.example.memorise.R;
 import com.example.memorise.StaticVar.Variable;
 import com.example.memorise.threads.HomeGet;
-import com.example.memorise.webActivity;
+import com.example.memorise.activity.webActivity;
 
 public class HomeFragment extends Fragment {
 

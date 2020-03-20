@@ -15,9 +15,18 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".webActivity" />
+        <activity android:name=".activity.update_password"></activity>
+        <activity android:name=".activity.update_address" />
+        <activity android:name=".activity.update_plan" />
+        <activity android:name=".activity.update_email" />
+        <activity android:name=".activity.update_sign" />
+        <activity android:name=".activity.update_id" />
+        <activity android:name=".activity.loginActivity" />
+        <activity android:name=".activity.helpActivity" />
+        <activity android:name=".activity.aboutActivity" />
+        <activity android:name=".activity.webActivity" />
         <activity
-            android:name=".MainActivity"
+            android:name=".activity.MainActivity"
             android:label="@string/app_name">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

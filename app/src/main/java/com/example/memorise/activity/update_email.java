@@ -29,6 +29,7 @@ public class update_email extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if (Variable.user.islogin.compareTo("true") == 0) {
+                    //原理和update_address.java一样
                     Variable.user.email = editText.getText().toString();
                     DatabaseHelper databaseHelper = new DatabaseHelper(getApplicationContext(), Variable.datebase, null, 1);
                     SQLiteDatabase db = databaseHelper.getWritableDatabase();

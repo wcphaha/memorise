@@ -6,7 +6,9 @@ import com.example.memorise.StaticVar.Variable;
 import com.example.memorise.sql.MyDataBase;
 
 import java.util.Date;
-
+/**
+ * 保存界面数据线程
+ */
 public class SaveData extends Thread {
     SQLiteDatabase db;
 

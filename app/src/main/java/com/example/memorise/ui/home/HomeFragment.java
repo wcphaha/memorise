@@ -34,6 +34,7 @@ public class HomeFragment extends Fragment {
         homeViewModel =
                 ViewModelProviders.of(this).get(HomeViewModel.class);
         View root = inflater.inflate(R.layout.fragment_home, container, false);
+        //获取页面元素
         final TextView textView = root.findViewById(R.id.text_home);
         final TextView mean = root.findViewById(R.id.mean);
         final TextView tip1 = root.findViewById(R.id.tip1);
@@ -45,10 +46,12 @@ public class HomeFragment extends Fragment {
         final FrameLayout frameLayout = root.findViewById(R.id.shows);
         final ProgressBar progressBar = root.findViewById(R.id.progress);
         final TextView elaborate = root.findViewById(R.id.elaborate);
+        //初始化请求队列
         mQueue = Volley.newRequestQueue(getActivity());
+        //设置进度条信息
         progressBar.setMax(Variable.user.dayplan);
         progressBar.setProgress(Variable.progress);
-
+        //单词详细信息
         elaborate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -57,7 +60,7 @@ public class HomeFragment extends Fragment {
                 startActivity(intent);
             }
         });
-
+        //点击认识
         know.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -79,6 +82,7 @@ public class HomeFragment extends Fragment {
 
             }
         });
+        //点击模糊
         unclear.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -99,6 +103,7 @@ public class HomeFragment extends Fragment {
 
             }
         });
+        //点击忘记
         forget.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -119,6 +124,7 @@ public class HomeFragment extends Fragment {
 
             }
         });
+        //点击显示单词意思
         frameLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

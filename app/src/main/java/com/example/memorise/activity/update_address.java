@@ -28,13 +28,17 @@ public class update_address extends AppCompatActivity {
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                //先判断用户是否处于登录状态，是则修改，不是则发出提示
                 if (Variable.user.islogin.compareTo("true") == 0){
+                    //修改内容
                     Variable.user.address = editText.getText().toString();
+                    //获取数据库
                     DatabaseHelper databaseHelper = new DatabaseHelper(getApplicationContext(),Variable.datebase,null,1);
                     SQLiteDatabase db = databaseHelper.getWritableDatabase();
+                    //主动调用SaveUser线程，保存修改后的数据
                     SaveUser saveUser = new SaveUser( db );
                     saveUser.run();
-
+                    //提示
                     Toast.makeText(getApplicationContext(),"修改地址成功！",Toast.LENGTH_SHORT)
                             .show();
                 }else {

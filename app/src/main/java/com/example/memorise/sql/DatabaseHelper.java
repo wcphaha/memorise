@@ -15,7 +15,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }
 
     @Override
-    public void onCreate(SQLiteDatabase db) {//初始化一个数据库，只在第一次调用时运行
+    public void onCreate(SQLiteDatabase db) {
+        //初始化一个数据库，只在第一次调用时运行
         //不同设备第一次运行程序时，会调用这个函数，初始化数据库
         //之后调用此类不会运行这个函数
         String SQL;

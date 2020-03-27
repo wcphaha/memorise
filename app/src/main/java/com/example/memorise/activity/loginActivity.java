@@ -35,13 +35,15 @@ public class loginActivity extends AppCompatActivity {
         final EditText password = findViewById(R.id.log_password);
 
         mQueue = Volley.newRequestQueue(getBaseContext());
-
-
+        //点击登录按钮事件处理
         log_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                //调用Login线程处理登录请求
                 Login login = new Login(mQueue,name.getText().toString(),password.getText().toString());
                 login.run();
+                //定时器，延迟两秒读取提示信息并显示到界面上
+                //因为线程异步请求数据，可能造成数据先读后写
                 Timer timer = new Timer();
                 TimerTask task = new TimerTask() {
                     @Override
@@ -56,15 +58,17 @@ public class loginActivity extends AppCompatActivity {
                         });
                     }
                 };
-                timer.schedule(task, 2000);
+                timer.schedule(task, 2000);//等待两秒运行task代码
             }
         });
-
+        //点击登录按钮事件处理
         reg_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                //创建登录线程处理登录请求
                 Reg reg = new Reg(mQueue,name.getText().toString(),password.getText().toString());
                 reg.run();
+                //定时器
                 Timer timer = new Timer();
                 TimerTask task = new TimerTask() {
                     @Override

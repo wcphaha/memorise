@@ -10,7 +10,9 @@ import com.android.volley.toolbox.StringRequest;
 import com.example.memorise.ParseJson.JsonToObject;
 import com.example.memorise.ParseJson.StrToJosn;
 import com.example.memorise.StaticVar.Variable;
-
+/**
+ * GET请求单词线程
+ */
 public class HomeGet extends Thread {
 
     public StringRequest stringRequest;
@@ -37,9 +39,7 @@ public class HomeGet extends Thread {
 
                         JSONObject json = StrToJosn.ParseJsonArray(response);
                         Variable.vocabularies[0]= JsonToObject.toVocabularyObject(json);
-                        //播放单词
-//                        Play play = new Play(Variable.vocabularies[0].vocab);
-//                        play.run();
+
                         //刷新显示Text
                         vocab.setText(Variable.vocabularies[0].vocab);
                         mean.setText(Variable.vocabularies[0].mean);

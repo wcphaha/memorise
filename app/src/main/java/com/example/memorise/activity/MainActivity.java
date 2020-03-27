@@ -81,10 +81,13 @@ public class MainActivity extends AppCompatActivity {
         NavigationUI.setupWithNavController(navView, navController);
 
         //////////!!!!!!!!!!!!!!!!!!!!!!!!!!!
+        //创建DatabaseHelper对象管理SQLITE数据库
         DatabaseHelper databaseHelper = new DatabaseHelper(this,Variable.datebase,null,1);
-        SQLiteDatabase db = databaseHelper.getWritableDatabase();
+        SQLiteDatabase db = databaseHelper.getWritableDatabase();//得到数据库对象
+        //打开软件，调用InitData线程，从数据库初始化界面显示数据
         InitData initData = new InitData(db);
         initData.run();
+        //打开软件，调用InitUser线程，从数据库初始化用户数据
         InitUser initUser = new InitUser(db);
         initUser.run();
     }
@@ -92,10 +95,13 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onPause() {
         super.onPause();
+        //当软件处于onPause状态时，获取数据库对象
         DatabaseHelper databaseHelper = new DatabaseHelper(this,Variable.datebase,null,1);
         SQLiteDatabase db = databaseHelper.getWritableDatabase();
+        //调用SaveData线程，保存界面数据
         SaveData saveData = new SaveData(db);
         saveData.run();
+        //调用SaveUser对象，保存用户数据
         SaveUser saveUser = new SaveUser(db);
         saveUser.run();
     }

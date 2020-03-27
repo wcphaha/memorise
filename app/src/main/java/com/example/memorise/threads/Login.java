@@ -11,7 +11,9 @@ import com.example.memorise.ParseJson.StrToJosn;
 import com.example.memorise.StaticVar.Variable;
 import com.example.memorise.object.Message;
 import com.example.memorise.object.User;
-
+/**
+ * 登录线程
+ */
 public class Login extends Thread {
 
     public RequestQueue mQueue;//一个请求队列，发请求时，将请求添加进来

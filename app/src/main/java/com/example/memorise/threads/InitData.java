@@ -7,7 +7,9 @@ import com.example.memorise.object.User;
 import com.example.memorise.sql.MyDataBase;
 
 import java.util.Date;
-
+/**
+ * 初始化界面数据线程
+ */
 public class InitData extends Thread {
     SQLiteDatabase db;
 
@@ -20,11 +22,19 @@ public class InitData extends Thread {
         init();
     }
     void init(){
+        //初始化进度
         Variable.progress = Variable.mem[0]+Variable.mem[1]+Variable.mem[2];
+
         MyDataBase mdb = new MyDataBase(db);
+        //得到现在的日期
         Date now_date = new Date();
+        //得到数据库的日期
         String old_date;
         old_date = mdb.query("date","select date from mem")[0];
+
+        //比较日期，判断是否是新的一天
+        //如果不是，直接将数据库内容读取到静态变量中
+        //如果是，将昨天饼状图数据清空，折线图数据后移
         if ( now_date.toString().substring(0,10).compareTo(old_date.substring(0,10)) == 0 ){
             //数据mem加载进来
             String m1,m2,m3;
@@ -59,7 +69,6 @@ public class InitData extends Thread {
             d6 = d7;
             mdb.delete("delete from history where seven = "+ d7 +"");
             mdb.insert("insert into history ( one,two,three,four,five,six,seven ) values ("+ d1 +","+ d2 +","+ d3 +","+ d4 +","+ d5 +"," +d6+ ",0)");
-
         }
     }
 }

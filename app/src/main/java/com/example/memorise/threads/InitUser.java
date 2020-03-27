@@ -4,7 +4,9 @@ import android.database.sqlite.SQLiteDatabase;
 
 import com.example.memorise.StaticVar.Variable;
 import com.example.memorise.sql.MyDataBase;
-
+/**
+ * 初始化用户数据线程
+ */
 public class InitUser extends Thread {
     SQLiteDatabase db;
 

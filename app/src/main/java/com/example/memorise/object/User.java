@@ -1,5 +1,8 @@
 package com.example.memorise.object;
-
+/**
+ * 用户对象
+ * 包含用户的基本信息
+ */
 public class User {
     public String name;
     public String password;

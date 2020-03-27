@@ -27,6 +27,7 @@ public class update_id extends AppCompatActivity {
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                //原理和update_address.java一样
                 if (Variable.user.islogin.compareTo("true") == 0){
                     Variable.user.name = editText.getText().toString();
                     DatabaseHelper databaseHelper = new DatabaseHelper(getApplicationContext(),Variable.datebase,null,1);

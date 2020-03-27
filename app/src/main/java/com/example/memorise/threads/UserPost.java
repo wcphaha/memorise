@@ -18,6 +18,9 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * POST请求，更改头像线程
+ */
 public class UserPost extends Thread {
     public SQLiteDatabase db;
     public StringRequest stringRequest;
@@ -79,14 +82,14 @@ public class UserPost extends Thread {
                 //修改数据库
                 //修改User变量
                 Variable.user.headpath = response;
-                mdb.update("update user set headpath = '"+ Variable.user.headpath +"';");
-                System.out.println("11111:"+response);
+                mdb.update("update user set headpath = '" + Variable.user.headpath + "';");
+                System.out.println("11111:" + response);
             }
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
                 // 请求错误就会进入这里
-                System.out.println("222222"+"啊啊啊啊啊");
+                System.out.println("222222" + "啊啊啊啊啊");
             }
         }) {
             // 像服务器post提交参数的方法

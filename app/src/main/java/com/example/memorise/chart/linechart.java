@@ -37,6 +37,7 @@ public class linechart {
     }
 
     void initDate() {
+        //设置横坐标
         String[] D = getStatetime();
         for (int i = 0; i < 7; i++) {
             D[i] = D[i].substring(5, 10);
@@ -45,6 +46,7 @@ public class linechart {
     }
 
     public String[] getStatetime() {
+        //获取近7天的日期字符串，返回一个日期数组
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
         String[] preDay = new String[7];
         for (int i = 0; i < 7; i++) {
@@ -54,7 +56,6 @@ public class linechart {
             preDay[i] = sdf.format(time);
         }
         return preDay;
-
     }
 
     public void show() {

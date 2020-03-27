@@ -51,10 +51,11 @@ public class InfoFragment extends Fragment {
         infoViewModel =
                 ViewModelProviders.of(this).get(InfoViewModel.class);
         View root = inflater.inflate(R.layout.fragment_info, container, false);
-
+        //实例化折线图对象，显示折线图
         line = root.findViewById(R.id.line_chart);
         linechart chart1 = new linechart(line);
         chart1.show();
+        //实例化饼状图对象，显示饼状图
         pie = root.findViewById(R.id.pie_chart);
         piechart chart2 = new piechart(pie);
         chart2.show();

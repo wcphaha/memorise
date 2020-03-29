@@ -4,13 +4,11 @@ import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
-import com.example.memorise.StaticVar.Variable;
-
 import java.util.Date;
 
-public class DatabaseHelper extends SQLiteOpenHelper {
+public class database_helper extends SQLiteOpenHelper {
 
-    public DatabaseHelper(Context context, String name, SQLiteDatabase.CursorFactory factory, int version) {
+    public database_helper(Context context, String name, SQLiteDatabase.CursorFactory factory, int version) {
         super(context, name, factory, version);
     }
 

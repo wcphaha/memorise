@@ -8,8 +8,8 @@ import android.view.MenuItem;
 import android.widget.SearchView;
 
 import com.example.memorise.R;
-import com.example.memorise.StaticVar.Variable;
-import com.example.memorise.sql.DatabaseHelper;
+import com.example.memorise.StaticVar.variable;
+import com.example.memorise.sql.database_helper;
 import com.example.memorise.threads.InitData;
 import com.example.memorise.threads.InitUser;
 import com.example.memorise.threads.SaveData;
@@ -21,7 +21,7 @@ import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
-public class MainActivity extends AppCompatActivity {
+public class main_activity extends AppCompatActivity {
 
     private SearchView mSearchView;
 
@@ -53,8 +53,8 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public boolean onQueryTextSubmit(String s) {
                 //输入完毕后点击搜索按钮事件
-                Variable.search_vocab = s;
-                Intent intent = new Intent(MainActivity.this, webActivity.class);
+                variable.search_vocab = s;
+                Intent intent = new Intent(main_activity.this, web_activity.class);
                 startActivity(intent);
                 return true;
             }
@@ -82,8 +82,8 @@ public class MainActivity extends AppCompatActivity {
 
         //////////!!!!!!!!!!!!!!!!!!!!!!!!!!!
         //创建DatabaseHelper对象管理SQLITE数据库
-        DatabaseHelper databaseHelper = new DatabaseHelper(this,Variable.datebase,null,1);
-        SQLiteDatabase db = databaseHelper.getWritableDatabase();//得到数据库对象
+        database_helper databasehelper = new database_helper(this, variable.datebase,null,1);
+        SQLiteDatabase db = databasehelper.getWritableDatabase();//得到数据库对象
         //打开软件，调用InitData线程，从数据库初始化界面显示数据
         InitData initData = new InitData(db);
         initData.run();
@@ -96,8 +96,8 @@ public class MainActivity extends AppCompatActivity {
     protected void onPause() {
         super.onPause();
         //当软件处于onPause状态时，获取数据库对象
-        DatabaseHelper databaseHelper = new DatabaseHelper(this,Variable.datebase,null,1);
-        SQLiteDatabase db = databaseHelper.getWritableDatabase();
+        database_helper databasehelper = new database_helper(this, variable.datebase,null,1);
+        SQLiteDatabase db = databasehelper.getWritableDatabase();
         //调用SaveData线程，保存界面数据
         SaveData saveData = new SaveData(db);
         saveData.run();

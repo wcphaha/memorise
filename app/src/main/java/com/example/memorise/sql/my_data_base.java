@@ -7,10 +7,10 @@ import android.database.sqlite.SQLiteDatabase;
  * 自己封装的数据库操作类，提供了对数据库的增删改查功能
  * 使用时需要向构造函数传入要操作的数据库对象
  */
-public class MyDataBase {
+public class my_data_base {
     SQLiteDatabase db;
 
-    public MyDataBase(SQLiteDatabase database) {//构造函数初始化
+    public my_data_base(SQLiteDatabase database) {//构造函数初始化
         this.db = database;
     }
 

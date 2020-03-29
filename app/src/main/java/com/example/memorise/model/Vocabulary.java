@@ -1,4 +1,4 @@
-package com.example.memorise.object;
+package com.example.memorise.model;
 /**
  * 单词对象
  * 记单词页面请求单词时返回的对象，包含一个单词的基本信息

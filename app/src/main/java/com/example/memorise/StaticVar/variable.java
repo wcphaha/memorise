@@ -1,14 +1,14 @@
 package com.example.memorise.StaticVar;
-import com.example.memorise.object.Message;
-import com.example.memorise.object.User;
-import com.example.memorise.object.Vocabulary;
+import com.example.memorise.model.Message;
+import com.example.memorise.model.User;
+import com.example.memorise.model.Vocabulary;
 /**
  * 静态数据
  * 从数据库得到数据
  * 向界面提供要展示的数据
  * 界面修改数据时，直接修改静态数据，然后保存到数据库
  */
-public class Variable {
+public class variable {
     //提示信息对象
     public static Message message = new Message() ;
     //Toast展示的数据

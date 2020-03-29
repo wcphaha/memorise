@@ -1,4 +1,4 @@
-package com.example.memorise.object;
+package com.example.memorise.model;
 /**
  * 用户对象
  * 包含用户的基本信息

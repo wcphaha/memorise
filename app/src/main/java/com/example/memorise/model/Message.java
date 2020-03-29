@@ -1,4 +1,4 @@
-package com.example.memorise.object;
+package com.example.memorise.model;
 
 public class Message {
     /**

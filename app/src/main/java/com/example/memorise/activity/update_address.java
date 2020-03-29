@@ -10,8 +10,8 @@ import android.widget.ImageButton;
 import android.widget.Toast;
 
 import com.example.memorise.R;
-import com.example.memorise.StaticVar.Variable;
-import com.example.memorise.sql.DatabaseHelper;
+import com.example.memorise.StaticVar.variable;
+import com.example.memorise.sql.database_helper;
 import com.example.memorise.threads.SaveUser;
 
 public class update_address extends AppCompatActivity {
@@ -29,12 +29,12 @@ public class update_address extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 //先判断用户是否处于登录状态，是则修改，不是则发出提示
-                if (Variable.user.islogin.compareTo("true") == 0){
+                if (variable.user.islogin.compareTo("true") == 0){
                     //修改内容
-                    Variable.user.address = editText.getText().toString();
+                    variable.user.address = editText.getText().toString();
                     //获取数据库
-                    DatabaseHelper databaseHelper = new DatabaseHelper(getApplicationContext(),Variable.datebase,null,1);
-                    SQLiteDatabase db = databaseHelper.getWritableDatabase();
+                    database_helper databasehelper = new database_helper(getApplicationContext(), variable.datebase,null,1);
+                    SQLiteDatabase db = databasehelper.getWritableDatabase();
                     //主动调用SaveUser线程，保存修改后的数据
                     SaveUser saveUser = new SaveUser( db );
                     saveUser.run();

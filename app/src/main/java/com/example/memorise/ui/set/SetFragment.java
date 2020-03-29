@@ -11,13 +11,12 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.LinearLayout;
 
 import com.example.memorise.R;
-import com.example.memorise.activity.loginActivity;
-import com.example.memorise.activity.update_id;
-import com.example.memorise.activity.webActivity;
+import com.example.memorise.activity.about_activity;
+import com.example.memorise.activity.help_activity;
+import com.example.memorise.activity.login_activity;
 
 
 public class SetFragment extends Fragment {
@@ -41,7 +40,7 @@ public class SetFragment extends Fragment {
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getActivity(), loginActivity.class);
+                Intent intent = new Intent(getActivity(), login_activity.class);
                 startActivity(intent);
 
             }
@@ -97,7 +96,7 @@ public class SetFragment extends Fragment {
         about.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getActivity(), com.example.memorise.activity.aboutActivity.class);
+                Intent intent = new Intent(getActivity(), about_activity.class);
                 startActivity(intent);
 
             }
@@ -105,7 +104,7 @@ public class SetFragment extends Fragment {
         help.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getActivity(), com.example.memorise.activity.helpActivity.class);
+                Intent intent = new Intent(getActivity(), help_activity.class);
                 startActivity(intent);
 
             }

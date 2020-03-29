@@ -11,14 +11,14 @@ import android.widget.Toast;
 import com.android.volley.RequestQueue;
 import com.android.volley.toolbox.Volley;
 import com.example.memorise.R;
-import com.example.memorise.StaticVar.Variable;
+import com.example.memorise.StaticVar.variable;
 import com.example.memorise.threads.Login;
 import com.example.memorise.threads.Reg;
 
 import java.util.Timer;
 import java.util.TimerTask;
 
-public class loginActivity extends AppCompatActivity {
+public class login_activity extends AppCompatActivity {
 
 
     public RequestQueue mQueue;//一个请求队列，发请求时，将请求添加进来
@@ -52,7 +52,7 @@ public class loginActivity extends AppCompatActivity {
                         //这里不能直接修改UI，需要使用runOnUiThread
                         runOnUiThread(new Runnable() {
                             public void run() {
-                                Toast.makeText(getApplicationContext(), Variable.tip,Toast.LENGTH_SHORT)
+                                Toast.makeText(getApplicationContext(), variable.tip,Toast.LENGTH_SHORT)
                                         .show();
                             }
                         });
@@ -77,7 +77,7 @@ public class loginActivity extends AppCompatActivity {
                         //这里不能直接修改UI，需要使用runOnUiThread
                         runOnUiThread(new Runnable() {
                             public void run() {
-                                Toast.makeText(getApplicationContext(), Variable.tip,Toast.LENGTH_SHORT)
+                                Toast.makeText(getApplicationContext(), variable.tip,Toast.LENGTH_SHORT)
                                         .show();
                             }
                         });

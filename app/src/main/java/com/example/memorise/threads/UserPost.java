@@ -9,8 +9,8 @@ import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
-import com.example.memorise.StaticVar.Variable;
-import com.example.memorise.sql.MyDataBase;
+import com.example.memorise.StaticVar.variable;
+import com.example.memorise.sql.my_data_base;
 
 import java.io.ByteArrayOutputStream;
 import java.io.FileInputStream;
@@ -74,15 +74,15 @@ public class UserPost extends Thread {
     }
 
     public void post_image(final String image) {
-        final MyDataBase mdb = new MyDataBase(db);
+        final my_data_base mdb = new my_data_base(db);
         stringRequest = new StringRequest(Request.Method.POST, "http://132.232.45.108:5000/liuyan/header", new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
                 // 返回的参数 response
                 //修改数据库
                 //修改User变量
-                Variable.user.headpath = response;
-                mdb.update("update user set headpath = '" + Variable.user.headpath + "';");
+                variable.user.headpath = response;
+                mdb.update("update user set headpath = '" + variable.user.headpath + "';");
                 System.out.println("11111:" + response);
             }
         }, new Response.ErrorListener() {

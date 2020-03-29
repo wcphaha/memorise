@@ -2,8 +2,8 @@ package com.example.memorise.threads;
 
 import android.database.sqlite.SQLiteDatabase;
 
-import com.example.memorise.StaticVar.Variable;
-import com.example.memorise.sql.MyDataBase;
+import com.example.memorise.StaticVar.variable;
+import com.example.memorise.sql.my_data_base;
         /**
         * 保存用户数据线程
         */
@@ -19,21 +19,21 @@ public class SaveUser extends Thread {
         init();
     }
     void init(){
-        MyDataBase mdb = new MyDataBase(db);
+        my_data_base mdb = new my_data_base(db);
 
-        mdb.update("update user set password = '"+ Variable.user.password +"'");
+        mdb.update("update user set password = '"+ variable.user.password +"'");
 
-        mdb.update("update user set name = '"+ Variable.user.name +"'");
+        mdb.update("update user set name = '"+ variable.user.name +"'");
 
-        mdb.update("update user set dayplan = '"+ Variable.user.dayplan +"'");
+        mdb.update("update user set dayplan = '"+ variable.user.dayplan +"'");
 
-        mdb.update("update user set email = '"+ Variable.user.email +"'");
+        mdb.update("update user set email = '"+ variable.user.email +"'");
 
-        mdb.update("update user set sign = '"+ Variable.user.sign +"'");
+        mdb.update("update user set sign = '"+ variable.user.sign +"'");
 
-        mdb.update("update user set address = '"+ Variable.user.address +"'");
+        mdb.update("update user set address = '"+ variable.user.address +"'");
 
-        mdb.update("update user set islogin = '"+ Variable.user.islogin +"'");
+        mdb.update("update user set islogin = '"+ variable.user.islogin +"'");
 
     }
 }

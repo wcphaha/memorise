@@ -10,8 +10,8 @@ import android.widget.ImageButton;
 import android.widget.Toast;
 
 import com.example.memorise.R;
-import com.example.memorise.StaticVar.Variable;
-import com.example.memorise.sql.DatabaseHelper;
+import com.example.memorise.StaticVar.variable;
+import com.example.memorise.sql.database_helper;
 import com.example.memorise.threads.SaveUser;
 
 public class update_password extends AppCompatActivity {
@@ -28,10 +28,10 @@ public class update_password extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 //原理和update_address.java一样
-                if (Variable.user.islogin.compareTo("true") == 0) {
-                    Variable.user.password = editText.getText().toString();
-                    DatabaseHelper databaseHelper = new DatabaseHelper(getApplicationContext(), Variable.datebase, null, 1);
-                    SQLiteDatabase db = databaseHelper.getWritableDatabase();
+                if (variable.user.islogin.compareTo("true") == 0) {
+                    variable.user.password = editText.getText().toString();
+                    database_helper databasehelper = new database_helper(getApplicationContext(), variable.datebase, null, 1);
+                    SQLiteDatabase db = databasehelper.getWritableDatabase();
                     SaveUser saveUser = new SaveUser(db);
                     saveUser.run();
                     Toast.makeText(getApplicationContext(), "修改密码成功！", Toast.LENGTH_SHORT)

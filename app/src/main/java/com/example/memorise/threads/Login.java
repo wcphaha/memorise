@@ -1,16 +1,14 @@
 package com.example.memorise.threads;
 
-import com.alibaba.fastjson.JSONObject;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
-import com.android.volley.toolbox.Volley;
 import com.example.memorise.ParseJson.JsonToObject;
 import com.example.memorise.ParseJson.StrToJosn;
-import com.example.memorise.StaticVar.Variable;
-import com.example.memorise.object.Message;
-import com.example.memorise.object.User;
+import com.example.memorise.StaticVar.variable;
+import com.example.memorise.model.Message;
+import com.example.memorise.model.User;
 /**
  * 登录线程
  */
@@ -41,10 +39,10 @@ public class Login extends Thread {
                         User tempuser = JsonToObject.toUserObject(StrToJosn.ParseJson(response));
                         if (tempuser.name == null){
                             Message message = JsonToObject.toMessageObject(StrToJosn.ParseJson(response));
-                            Variable.tip = message.msg;
+                            variable.tip = message.msg;
                         }else {
-                            Variable.tip = "登录成功！";
-                            Variable.user = tempuser;
+                            variable.tip = "登录成功！";
+                            variable.user = tempuser;
                         }
                     }
                 },

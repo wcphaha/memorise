@@ -1,13 +1,10 @@
 package com.example.memorise.chart;
 
 import android.graphics.Color;
-import android.os.Bundle;
 import android.view.View;
 
-import com.example.memorise.R;
-import com.example.memorise.StaticVar.Variable;
+import com.example.memorise.StaticVar.variable;
 
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -25,14 +22,14 @@ import lecho.lib.hellocharts.model.ValueShape;
 import lecho.lib.hellocharts.model.Viewport;
 import lecho.lib.hellocharts.view.LineChartView;
 
-public class linechart {
+public class line_chart {
 
     private LineChartView lineChart;
     String[] date;//X轴的标注
-    int[] score = Variable.getHistory();//图表的数据点
+    int[] score = variable.getHistory();//图表的数据点
     private List<PointValue> mPointValues = new ArrayList<PointValue>();
     private List<AxisValue> mAxisXValues = new ArrayList<AxisValue>();
-    public linechart(LineChartView lineChart) {
+    public line_chart(LineChartView lineChart) {
         this.lineChart = lineChart;
     }
 

@@ -1,42 +1,18 @@
 package com.example.memorise.ui.Info;
 
-import android.content.ContentValues;
-import android.database.Cursor;
-import android.database.sqlite.SQLiteDatabase;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.CalendarView;
-import android.widget.ImageView;
-import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProviders;
 
-import com.bumptech.glide.Glide;
 import com.example.memorise.R;
-import com.example.memorise.StaticVar.Variable;
-import com.example.memorise.chart.linechart;
-import com.example.memorise.chart.piechart;
-import com.example.memorise.object.User;
-import com.example.memorise.sql.DatabaseHelper;
-import com.example.memorise.sql.MyDataBase;
+import com.example.memorise.chart.line_chart;
+import com.example.memorise.chart.pie_chart;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import lecho.lib.hellocharts.gesture.ContainerScrollType;
-import lecho.lib.hellocharts.gesture.ZoomType;
-import lecho.lib.hellocharts.model.Axis;
-import lecho.lib.hellocharts.model.AxisValue;
-import lecho.lib.hellocharts.model.Line;
-import lecho.lib.hellocharts.model.LineChartData;
-import lecho.lib.hellocharts.model.PointValue;
-import lecho.lib.hellocharts.model.ValueShape;
-import lecho.lib.hellocharts.model.Viewport;
 import lecho.lib.hellocharts.view.LineChartView;
 import lecho.lib.hellocharts.view.PieChartView;
 
@@ -53,11 +29,11 @@ public class InfoFragment extends Fragment {
         View root = inflater.inflate(R.layout.fragment_info, container, false);
         //实例化折线图对象，显示折线图
         line = root.findViewById(R.id.line_chart);
-        linechart chart1 = new linechart(line);
+        line_chart chart1 = new line_chart(line);
         chart1.show();
         //实例化饼状图对象，显示饼状图
         pie = root.findViewById(R.id.pie_chart);
-        piechart chart2 = new piechart(pie);
+        pie_chart chart2 = new pie_chart(pie);
         chart2.show();
         return root;
     }

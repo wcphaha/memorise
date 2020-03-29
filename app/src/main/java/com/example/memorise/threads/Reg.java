@@ -6,9 +6,9 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.example.memorise.ParseJson.JsonToObject;
 import com.example.memorise.ParseJson.StrToJosn;
-import com.example.memorise.StaticVar.Variable;
-import com.example.memorise.object.Message;
-import com.example.memorise.object.User;
+import com.example.memorise.StaticVar.variable;
+import com.example.memorise.model.Message;
+
 /**
  * 注册线程
  */
@@ -36,7 +36,7 @@ public class Reg extends Thread {
                     @Override
                     public void onResponse(String response) {
                         Message message = JsonToObject.toMessageObject(StrToJosn.ParseJson(response));
-                        Variable.tip = message.msg;
+                        variable.tip = message.msg;
                     }
                 },
                 new Response.ErrorListener() {

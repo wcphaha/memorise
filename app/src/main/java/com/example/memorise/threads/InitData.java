@@ -2,9 +2,8 @@ package com.example.memorise.threads;
 
 import android.database.sqlite.SQLiteDatabase;
 
-import com.example.memorise.StaticVar.Variable;
-import com.example.memorise.object.User;
-import com.example.memorise.sql.MyDataBase;
+import com.example.memorise.StaticVar.variable;
+import com.example.memorise.sql.my_data_base;
 
 import java.util.Date;
 /**
@@ -23,9 +22,9 @@ public class InitData extends Thread {
     }
     void init(){
         //初始化进度
-        Variable.progress = Variable.mem[0]+Variable.mem[1]+Variable.mem[2];
+        variable.progress = variable.mem[0]+ variable.mem[1]+ variable.mem[2];
 
-        MyDataBase mdb = new MyDataBase(db);
+        my_data_base mdb = new my_data_base(db);
         //得到现在的日期
         Date now_date = new Date();
         //得到数据库的日期
@@ -41,13 +40,13 @@ public class InitData extends Thread {
             m1 = mdb.query("know","select know from mem")[0];
             m2 = mdb.query("unclear","select unclear from mem")[0];
             m3 = mdb.query("forget","select forget from mem")[0];
-            Variable.mem[0] = Integer.valueOf(m1);
-            Variable.mem[1] = Integer.valueOf(m2);
-            Variable.mem[2] = Integer.valueOf(m3);
+            variable.mem[0] = Integer.valueOf(m1);
+            variable.mem[1] = Integer.valueOf(m2);
+            variable.mem[2] = Integer.valueOf(m3);
             //数据history加载进来
             String seven;
             seven = mdb.query("seven","select seven from history")[0];
-            Variable.progress = Integer.valueOf(seven);
+            variable.progress = Integer.valueOf(seven);
         }else {
             //清空昨天的记忆表，更改日期
             mdb.delete("delete from mem where date = '"+ old_date +"'");

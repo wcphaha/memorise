@@ -6,9 +6,9 @@ import android.webkit.WebSettings;
 import android.webkit.WebView;
 
 import com.example.memorise.R;
-import com.example.memorise.StaticVar.Variable;
+import com.example.memorise.StaticVar.variable;
 
-public class webActivity extends Activity {
+public class web_activity extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,7 +21,7 @@ public class webActivity extends Activity {
         WebSettings webSettings = webView.getSettings();
         webSettings.setJavaScriptEnabled(true);
         // 加载网页
-        webView.loadUrl("https://cn.bing.com/dict/"+ Variable.search_vocab);
+        webView.loadUrl("https://cn.bing.com/dict/"+ variable.search_vocab);
 
     }
 }

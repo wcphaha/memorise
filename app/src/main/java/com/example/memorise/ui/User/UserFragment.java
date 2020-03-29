@@ -11,14 +11,11 @@ import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
-import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -30,8 +27,8 @@ import com.android.volley.RequestQueue;
 import com.android.volley.toolbox.Volley;
 import com.bumptech.glide.Glide;
 import com.example.memorise.R;
-import com.example.memorise.StaticVar.Variable;
-import com.example.memorise.sql.DatabaseHelper;
+import com.example.memorise.StaticVar.variable;
+import com.example.memorise.sql.database_helper;
 import com.example.memorise.threads.UserPost;
 
 public class UserFragment extends Fragment {
@@ -59,12 +56,12 @@ public class UserFragment extends Fragment {
         final TextView address = root.findViewById(R.id.user_address);
         final TextView sum = root.findViewById(R.id.user_sum);
         mQueue = Volley.newRequestQueue(getActivity());
-        sum.setText(String.valueOf(Variable.user.sumvocab));
-        email.setText(Variable.user.email);
-        address.setText(Variable.user.address);
-        user_name.setText(Variable.user.name);
-        sign.setText(Variable.user.sign);
-        plan.setText(String.valueOf(Variable.user.dayplan));
+        sum.setText(String.valueOf(variable.user.sumvocab));
+        email.setText(variable.user.email);
+        address.setText(variable.user.address);
+        user_name.setText(variable.user.name);
+        sign.setText(variable.user.sign);
+        plan.setText(String.valueOf(variable.user.dayplan));
 
         headphoto.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -76,7 +73,7 @@ public class UserFragment extends Fragment {
                 startActivityForResult(intent, IMAGE);
             }
         });
-        Glide.with(this).load(Variable.user.headpath).into(headphoto);
+        Glide.with(this).load(variable.user.headpath).into(headphoto);
 
         return root;
     }
@@ -101,8 +98,8 @@ public class UserFragment extends Fragment {
         Bitmap bm = BitmapFactory.decodeFile(imaePath);
         ((ImageView)getActivity().findViewById(R.id.headphoto)).setImageBitmap(bm);
         //获取本地数据库
-        DatabaseHelper databaseHelper = new DatabaseHelper(getContext(),Variable.datebase,null,1);
-        SQLiteDatabase db = databaseHelper.getWritableDatabase();
+        database_helper databasehelper = new database_helper(getContext(), variable.datebase,null,1);
+        SQLiteDatabase db = databasehelper.getWritableDatabase();
         //调用上传图片线程
         UserPost userPost = new UserPost(mQueue,bm,db);
         userPost.run();

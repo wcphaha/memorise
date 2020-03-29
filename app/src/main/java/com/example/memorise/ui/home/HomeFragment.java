@@ -19,9 +19,9 @@ import androidx.lifecycle.ViewModelProviders;
 import com.android.volley.RequestQueue;
 import com.android.volley.toolbox.Volley;
 import com.example.memorise.R;
-import com.example.memorise.StaticVar.Variable;
+import com.example.memorise.StaticVar.variable;
 import com.example.memorise.threads.HomeGet;
-import com.example.memorise.activity.webActivity;
+import com.example.memorise.activity.web_activity;
 
 public class HomeFragment extends Fragment {
 
@@ -49,14 +49,14 @@ public class HomeFragment extends Fragment {
         //初始化请求队列
         mQueue = Volley.newRequestQueue(getActivity());
         //设置进度条信息
-        progressBar.setMax(Variable.user.dayplan);
-        progressBar.setProgress(Variable.progress);
+        progressBar.setMax(variable.user.dayplan);
+        progressBar.setProgress(variable.progress);
         //单词详细信息
         elaborate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Variable.search_vocab = (String) textView.getText();
-                Intent intent = new Intent(getActivity(), webActivity.class);
+                variable.search_vocab = (String) textView.getText();
+                Intent intent = new Intent(getActivity(), web_activity.class);
                 startActivity(intent);
             }
         });
@@ -66,11 +66,11 @@ public class HomeFragment extends Fragment {
             public void onClick(View v) {
                 HomeGet h1 = new HomeGet(mQueue,textView,mean);
                 h1.run();
-                Variable.progress +=1;
-                Variable.mem[0]+=1;
-                Variable.user.sumvocab += 1;
-                progressBar.setProgress(Variable.progress);
-                if (Variable.progress >= Variable.user.dayplan){
+                variable.progress +=1;
+                variable.mem[0]+=1;
+                variable.user.sumvocab += 1;
+                progressBar.setProgress(variable.progress);
+                if (variable.progress >= variable.user.dayplan){
                     Toast.makeText(getActivity(),"今日任务完成",Toast.LENGTH_SHORT)
                             .show();
                 }
@@ -88,10 +88,10 @@ public class HomeFragment extends Fragment {
             public void onClick(View v) {
                 HomeGet h1 = new HomeGet(mQueue,textView,mean);
                 h1.run();
-                Variable.progress +=1;
-                Variable.mem[1]+=1;
-                progressBar.setProgress(Variable.progress);
-                if (Variable.progress >= Variable.user.dayplan){
+                variable.progress +=1;
+                variable.mem[1]+=1;
+                progressBar.setProgress(variable.progress);
+                if (variable.progress >= variable.user.dayplan){
                     Toast.makeText(getActivity(),"今日任务完成",Toast.LENGTH_SHORT)
                             .show();
                 }
@@ -109,10 +109,10 @@ public class HomeFragment extends Fragment {
             public void onClick(View v) {
                 HomeGet h1 = new HomeGet(mQueue,textView,mean);
                 h1.run();
-                Variable.progress +=1;
-                Variable.mem[2]+=1;
-                progressBar.setProgress(Variable.progress);
-                if (Variable.progress >= Variable.user.dayplan){
+                variable.progress +=1;
+                variable.mem[2]+=1;
+                progressBar.setProgress(variable.progress);
+                if (variable.progress >= variable.user.dayplan){
                     Toast.makeText(getActivity(),"今日任务完成!",Toast.LENGTH_SHORT)
                             .show();
                 }
@@ -139,15 +139,15 @@ public class HomeFragment extends Fragment {
         //通过设置flag解决了每次点击home切换单词
         // 当第一次进入home页面的时候，get单词；
         // 切换界面时到home只刷新一个UI，不重新get新单词
-        if (Variable.do_not_fresh_home == 0){
+        if (variable.do_not_fresh_home == 0){
             //调用线程刷新界面
             HomeGet g1 = new HomeGet(mQueue,textView,mean);
             g1.run();
-            Variable.do_not_fresh_home = 1;
+            variable.do_not_fresh_home = 1;
         }else {
             //刷新显示Text
-            textView.setText(Variable.vocabularies[0].vocab);
-            mean.setText(Variable.vocabularies[0].mean);
+            textView.setText(variable.vocabularies[0].vocab);
+            mean.setText(variable.vocabularies[0].mean);
         }
 
         ///

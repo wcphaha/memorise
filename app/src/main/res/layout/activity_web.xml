@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.memorise.activity.webActivity">
+    tools:context="com.example.memorise.activity.web_activity">
 
     <WebView
         android:id="@+id/web"

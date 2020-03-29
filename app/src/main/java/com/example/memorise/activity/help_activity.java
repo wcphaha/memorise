@@ -6,7 +6,7 @@ import android.os.Bundle;
 
 import com.example.memorise.R;
 
-public class helpActivity extends AppCompatActivity {
+public class help_activity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

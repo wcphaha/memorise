@@ -8,7 +8,7 @@ import com.example.memorise.model.Vocabulary;
  * 向界面提供要展示的数据
  * 界面修改数据时，直接修改静态数据，然后保存到数据库
  */
-public class variable {
+public class Variable {
     //提示信息对象
     public static Message message = new Message() ;
     //Toast展示的数据
